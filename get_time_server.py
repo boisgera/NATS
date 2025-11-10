@@ -10,7 +10,7 @@ import nats
 async def server(nats_client=None, subject="clock", delay=1.0) -> None:
     if nats_client is None:
         nats_client = await nats.connect()
-        sub = await nats_client.subscribe("get_time")
+    sub = await nats_client.subscribe("get_time")
     while True:
         message = await sub.next_msg(timeout=inf)
         sender = message.data.decode("utf-8")
