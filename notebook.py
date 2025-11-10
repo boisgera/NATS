@@ -57,11 +57,8 @@ def _(mo):
 def _(asyncio, nats_client):
     async def heartbeat(subject="❤️", data=b"", delay=1.0):
         while True:
-            print("*")
             await nats_client.publish(subject, data)
-            print("**")
             await asyncio.sleep(delay)
-            print("***")
     return (heartbeat,)
 
 
@@ -137,19 +134,17 @@ def _(mo):
 
 @app.cell
 async def _(asyncio, heartbeat, nats_client, time):
-    # 🪲: doesn't work, but clock does (???)
     async def f():
-        hb = asyncio.create_task(heartbeat(subject="hb", delay=1.0,  data="."))
-    
+        heartbeat_sub = await nats_client.subscribe("❤️")
+        hb = asyncio.create_task(heartbeat())
+
         _t0 = time.time()
-        heartbeat_sub = await nats_client.subscribe("hb")
         for _ in range(10):
-            a = await heartbeat_sub.next_msg(timeout=5.0)
-            print(a.data)
+            await heartbeat_sub.next_msg(timeout=5.0)
             _t1 = time.time()
             _dt = _t1 - _t0
             _t0 = _t1
-            print(f"{_dt:.1f}")
+            print(f"dt = {_dt:.1f}")
         await heartbeat_sub.unsubscribe()
         return hb.cancel()
     await f()
