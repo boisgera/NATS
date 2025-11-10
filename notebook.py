@@ -17,6 +17,18 @@ def _(mo):
 
 
 @app.cell
+def _(mo):
+    mo.md(r"""
+    ## TODO
+
+    - [ ] RPC? with json args/kwargs
+    - [ ] Dabble with cloudpickle?
+    - [ ] Universal server?
+    """)
+    return
+
+
+@app.cell
 def _():
     import marimo as mo
     return (mo,)
@@ -96,7 +108,7 @@ def _(asyncio, inf, json, nats_client):
             reply_to = json_data["reply_to"]
             await nats_client.publish(reply_to, f"Hello {name}! 👋".encode("utf-8"))
             await asyncio.sleep(0.0)
-    return
+    return (greet,)
 
 
 @app.cell
@@ -108,12 +120,12 @@ def _(asyncio, httpx, inf, json, nats_client):
         sub = await nats_client.subscribe("ISS_location")
         while True:
             message = await sub.next_msg(timeout=inf)
-            reply_to = message.decode("utf-8")
+            reply_to = message.data.decode("utf-8")
             response = await httpx_async.get(ISS_URL)
             json_data = response.json()
             await nats_client.publish(reply_to, json.dumps(json_data).encode("utf-8")) 
             await asyncio.sleep(0.0)
-    return
+    return (ISS_location,)
 
 
 @app.cell
@@ -171,7 +183,7 @@ async def _(asyncio, clock, nats_client, time):
 
     _t0 = time.time()
     clock_sub = await nats_client.subscribe("clock")
-    for _ in range(10):
+    for _ in range(5):
         message = await clock_sub.next_msg(timeout=20.0)
         _epoch = float(message.data)
         _t1 = time.time()
@@ -187,12 +199,27 @@ async def _(asyncio, clock, nats_client, time):
 async def _(nats_client):
     inbox_name = "boisgera" 
     inbox = await nats_client.subscribe(inbox_name)
+    return inbox, inbox_name
+
+
+@app.cell
+async def _(ISS_location, asyncio, inbox, inbox_name, json, nats_client):
+    iss = asyncio.create_task(ISS_location())
+    await nats_client.publish("ISS_location", inbox_name.encode("utf-8"))
+    _message = await inbox.next_msg(timeout=10.0)
+    dict_data = json.loads(_message.data.decode("utf-8"))
+    iss.cancel()
+    dict_data
     return
 
 
 @app.cell
-def _():
-    #await inbox.next_msg(timeout=15.0)
+async def _(asyncio, greet, inbox, inbox_name, json, nats_client):
+    gr = asyncio.create_task(greet())
+    await nats_client.publish("greet", json.dumps({"name": "Sébastien", "reply_to": inbox_name}).encode("utf-8"))
+    _message = await inbox.next_msg(timeout=3.0)
+    gr.cancel()
+    print(_message.data.decode("utf-8"))
     return
 
 
