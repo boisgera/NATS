@@ -1,8 +1,9 @@
 # NATS
 
+The "Neural Autonomic Transport System", a cross-platform messaging technology.
+
 ![NATS logo](images/nats-horizontal-color.png)
 
-The "Neural Autonomic Transport System", a cross-platform messaging technology.
 
 ## Prerequisites
 
