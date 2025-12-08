@@ -2,11 +2,18 @@
 
 ![NATS logo](images/nats-horizontal-color.png)
 
+The "Neural Autonomic Transport System", a cross-platform messaging technology.
+
 ## Prerequisites
 
-- [ ] Learn the basics of Python [asyncio] (a library to write concurrent code using the async/await syntax.)
+Learn the basics of Python async:
 
-[asyncio]: https://github.com/boisgera/asyncio
+- [ ] [IDS tutorial][github-asyncio]
+
+For further information, use the [asyncio documentation][asyncio].
+
+[github-asyncio]: https://github.com/boisgera/asyncio
+[asyncio]: https://docs.python.org/3/library/asyncio.html
 
 ## Getting Started
 
