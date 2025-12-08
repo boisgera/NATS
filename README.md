@@ -2,7 +2,7 @@
 
 The "Neural Autonomic Transport System", a cross-platform messaging technology.
 
-![NATS logo](images/nats-horizontal-color.png)
+[![NATS logo](images/nats-horizontal-color.png)](https://nats.io/)
 
 
 ## Prerequisites
@@ -24,7 +24,7 @@ For further information, use the [asyncio documentation][asyncio].
 
 - [ ] Test the NATS client with `01_hello_world.py` (demo server),
 
-- [ ] Install the NATS server binary/service,
+- [ ] Install and start the NATS server binary/service,
 
 - [ ] Adapt hello world to test your local NATS server.
 
