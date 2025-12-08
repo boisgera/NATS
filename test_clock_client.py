@@ -5,7 +5,7 @@ import nats
 
 
 async def main() -> None :
-    nats_client = await nats.connect()
+    nats_client = await nats.connect("nats://7.tcp.eu.ngrok.io:11933")
     sub = await nats_client.subscribe("clock")
 
     while True:

@@ -1,19 +1,48 @@
+# NATS
 
-Async Python:
-  - Use `async`, `await` and `asyncio.run` is synchronous mode.
-  - decompose `await f(...)`: `create_task` + await it;
-  - tasks in parallel.
-  - asyncio.sleep vs time.sleep
+![NATS logo](images/nats-horizontal-color.png)
 
-Links:
-  - <https://github.com/nats-io/nats.py>
-  - <https://nats-io.github.io/nats.py/>
+## Prerequisites
+
+- [ ] Learn the basics of Python [asyncio] (a library to write concurrent code using the async/await syntax.)
+
+[asyncio]: https://github.com/boisgera/asyncio
+
+## Getting Started
+
+- [ ] Have a look at [NATS : Connective Technology for Adaptive Edge & Distributed Systems](https://nats.io/),
+
+- [ ] Install the [official NATS Python client and tools](https://github.com/nats-io/nats.py),
+
+- [ ] Test the NATS client with `01_hello_world.py` (demo server),
+
+- [ ] Install the NATS server binary/service,
+
+- [ ] Adapt hello world to test your local NATS server.
+
+## Primitives
+
+Learn the basics of the [NATS Python client API](https://nats-io.github.io/nats.py/modules.html):
+
+- [ ] `connect`
+
+- [ ] `subscribe`
+
+- [ ] `publish`
+
+- [ ] `Subscription` and `Subscription.next_msg`
+
+- [ ] `Message` and `Message.data`
+
+
 
 Elementary needs:
   - NATS server
   - channels, publish, subscribe, read
 
   - Q: sync API vs async API?
+
+## Tools
 
 TODO:
   - publish a heartbeat every second
