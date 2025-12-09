@@ -9,9 +9,9 @@ The "Neural Autonomic Transport System", a cross-platform messaging technology.
 
 Learn the basics of Python async:
 
-- [ ] [IDS tutorial][github-asyncio]
+- [ ] [asyncio IDS tutorial][github-asyncio]
 
-For further information, use the [asyncio documentation][asyncio].
+For further information, refer to the [asyncio documentation][asyncio].
 
 [github-asyncio]: https://github.com/boisgera/asyncio
 [asyncio]: https://docs.python.org/3/library/asyncio.html
@@ -38,25 +38,37 @@ Learn the basics of the [NATS Python client API](https://nats-io.github.io/nats.
 
 - [ ] `publish`
 
-- [ ] `Subscription` and `Subscription.next_msg`
+- [ ] `Subscription`, `Subscription.next_msg` and `Subscription.messages`,
 
 - [ ] `Message` and `Message.data`
 
+## Practice
+
+ - [ ] **Identity.** Select an name to identify yourself (e.g. `boisgera` for myself).
+
+ - [ ] **Heartbeat.** Send every second a message with subject `"❤️"` 
+      and with data your (utf-8 encoded) name.
+
+ - [ ] **Alive** Create a python file with an async function `alive` 
+   that list (once, alphabetically) each name that has at least one heartbeat 
+   over a 3.0 second. Print each name on a line when the python file is
+   invoked as a script.
+       
+**TODO.**
+
+  - Inboxes
+
+  - Send a message, get simple ack (?) (need message id at this stage already?)
+
+  - Send a message, get a reply
+
+  - Exchange of structured data (JSON)
+
+  - Ask requests (RPC)?
 
 
-Elementary needs:
-  - NATS server
-  - channels, publish, subscribe, read
+## Extra
 
-  - Q: sync API vs async API?
-
-## Tools
-
-TODO:
-  - publish a heartbeat every second
-  - publish server time every second
-  - publish the ISS location in JSON every second
-  - install a factorial server
   - offer a remote calling service (cloudpickle/b64 of a function)
   - install a universal server (see <https://joearms.github.io/published/2013-11-21-My-favorite-erlang-program.html>)
   - mailbox system?
