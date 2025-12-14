@@ -68,9 +68,10 @@ Learn the basics of the [NATS Python client API](https://nats-io.github.io/nats.
    to get an answer!
 
  - [ ] **Replies.** There are several way to identify among all the
-   messages that you get which one correspond to the answer to a spefici
+   messages that you get which one correspond to the answer to a specific
    message you get. One way consists in using an ephemeral channel which
    you will use only for this answer, and specify its (uniquely generated 
    name) in the `reply` argument.
 
- - [ ]
+ - [ ] **Structured data.** 🚧 **TODO** (TODO: DOI and biblio? ISS position?
+   Chuck Norris Joke?)
