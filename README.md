@@ -67,7 +67,10 @@ Learn the basics of the [NATS Python client API](https://nats-io.github.io/nats.
    question. Specific the `reply` argument to `publish` in order
    to get an answer!
 
- - [ ] **Reply.** If you want to be able to distinguish with certainty what 
-   message is specifically target
+ - [ ] **Replies.** There are several way to identify among all the
+   messages that you get which one correspond to the answer to a spefici
+   message you get. One way consists in using an ephemeral channel which
+   you will use only for this answer, and specify its (uniquely generated 
+   name) in the `reply` argument.
 
  - [ ]

@@ -18,7 +18,7 @@ async def heartbeat(name, dt):
 
 async def display_inbox(name):
     nc = await nats.connect("demo.nats.io")
-    sub = await nc.subscribe(f"name")
+    sub = await nc.subscribe(name)
     while True:
         message = await sub.next_msg(math.inf)
         text = message.data.decode("utf-8")
@@ -26,13 +26,13 @@ async def display_inbox(name):
         print(f"----- 📬 {time} reply-to: {message.reply}")
         print(text)
 
-async def async_main(name: str = "anonymous", dt : float = 1.0):
+async def async_main(name: str, dt : float = 1.0):
     async with asyncio.TaskGroup() as tg:
         tg.create_task(heartbeat(name, dt))
         tg.create_task(display_inbox(name))
 
 @app.command()
-def main(name: str = "anonymous", dt : float = 1.0):
+def main(name: str, dt : float = 1.0):
     asyncio.run(async_main(name, dt))
 
 if __name__ == "__main__":
