@@ -52,24 +52,22 @@ Learn the basics of the [NATS Python client API](https://nats-io.github.io/nats.
  - [ ] **Alive** Create a python file with an async function `alive` 
    that list (once, alphabetically) each name that has at least one heartbeat 
    over a 3.0 second. Print each name on a line when the python file is
-   invoked as a script.
-       
-**TODO.**
+   invoked as a script. 
+   
+ - [ ] **Watcher**. Use [rich](https://rich.readthedocs.io/en/latest/) 
+  to make a script that continuously display the list of heartbeat names.
 
-  - Inboxes
+ - [ ] **Inbox.** Subscribe to the channel which is your name
+   and print every message that you receive in this channel.
+   Combine this program with the publication of your heartbeat.
 
-  - Send a message, get simple ack (?) (need message id at this stage already?)
+ - [ ] **Greetings.** Send a (utf-8 encoded) greeting message to a person who has a heartbeat.
 
-  - Send a message, get a reply
+ - [ ] **Reply.** Send another message to someone with a specific
+   question. Specific the `reply` argument to `publish` in order
+   to get an answer!
 
-  - Exchange of structured data (JSON)
+ - [ ] **Reply.** If you want to be able to distinguish with certainty what 
+   message is specifically target
 
-  - Ask requests (RPC)?
-
-
-## Extra
-
-  - offer a remote calling service (cloudpickle/b64 of a function)
-  - install a universal server (see <https://joearms.github.io/published/2013-11-21-My-favorite-erlang-program.html>)
-  - mailbox system?
-  - heartbeat + supervision with restart?
+ - [ ]

@@ -2,6 +2,8 @@ import asyncio
 import math
 
 import nats
+from rich.live import Live
+from rich.text import Text
 
 names = []
 
@@ -22,11 +24,18 @@ async def alive(timeout):
         names = []
         return sorted_names
 
-async def main(timeout):
+async def _main(timeout):
     names = await alive(timeout)
     for name in names:
         print(name)
 
+async def main(timeout):
+    with Live() as live:
+        while True:
+            names = await alive(timeout)
+            text = "\n".join(names)
+            live.update(Text(text))
+            await asyncio.sleep(timeout)
 
 if __name__ == "__main__":
     asyncio.run(main(timeout=3.0))
