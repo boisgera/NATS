@@ -13,9 +13,7 @@ import typer
 # Chuck Norris jokes API URL (see: https://api.chucknorris.io/).
 API_URL = "https://api.chucknorris.io/jokes"
 
-# Accept a plain text request, the subject of the joke search.
-
-app = typer.Typer()
+app = typer.Typer(help="fetch Chuck Norris jokes based on free-text queries.")
 
 
 async def fetch_and_reply(
@@ -36,17 +34,15 @@ async def fetch_and_reply(
 async def async_main():
     httpx_client = httpx.AsyncClient()
     nats_client = await nats.connect("demo.nats.io")
-    sub = await nats_client.subscribe("chuck norris jokes")
+    sub = await nats_client.subscribe("chuck-norris-jokes")
     while True:
         message = await sub.next_msg(math.inf)
-        asyncio.create_task(
-            fetch_and_reply(httpx_client, nats_client, message)
-        )
+        asyncio.create_task(fetch_and_reply(httpx_client, nats_client, message))
 
 
 @app.command()
-def main(subject: str):
-    asyncio.run(async_main(subject))
+def main():
+    asyncio.run(async_main())
 
 
 if __name__ == "__main__":
