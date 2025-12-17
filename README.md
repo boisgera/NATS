@@ -38,9 +38,9 @@ Learn the basics of the [NATS Python client API](https://nats-io.github.io/nats.
 
 - [ ] `publish`
 
-- [ ] `Subscription`, `Subscription.next_msg` and `Subscription.messages`,
+- [ ] `Subscription` and `Subscription.next_msg`,
 
-- [ ] `Message` and `Message.data`
+- [ ] `Message`, `Message.data` and `Message.reply`.
 
 ## Practice
 
