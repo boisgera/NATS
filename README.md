@@ -64,7 +64,7 @@ Learn the basics of the [NATS Python client API](https://nats-io.github.io/nats.
  - [ ] **Greetings.** Send a (utf-8 encoded) greeting message to a person who has a heartbeat.
 
  - [ ] **Reply.** Send another message to someone with a specific
-   question. Specific the `reply` argument to `publish` in order
+   question. Specify the `reply` argument to `publish` in order
    to get an answer!
 
  - [ ] **Replies.** There are several way to identify among all the
