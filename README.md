@@ -73,5 +73,6 @@ Learn the basics of the [NATS Python client API](https://nats-io.github.io/nats.
    you will use only for this answer, and specify its (uniquely generated 
    name) in the `reply` argument.
 
- - [ ] **Structured data.** 🚧 **TODO** (TODO: DOI and biblio? ISS position?
-   Chuck Norris Joke?)
+ - [ ] **JSON.** Make some NATS server to provide access to
+   search [Chuck Norris Jokes](https://api.chucknorris.io/)
+   and also make the corresponding client.
