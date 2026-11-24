@@ -17,7 +17,7 @@ async def async_main(sender, to):
     await greet(sender, to)
 
 @app.command()
-def main(sender : str, to: str):
+def main(sender: str, to: str):
     asyncio.run(async_main(sender, to))
 
 if __name__ == "__main__":
