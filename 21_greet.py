@@ -10,7 +10,7 @@ app = typer.Typer()
 async def greet(name):
     nc = await nats.connect("demo.nats.io")
     await nc.publish(name, f"👋 Greetings {name}!".encode("utf-8"))
-    await nc.drain()
+    await nc.flush()
     await nc.close()
 
 async def async_main(name):
