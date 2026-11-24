@@ -3,6 +3,9 @@ import math
 
 import nats
 
+# Alternatively, don't use global shared data but have collect return the names 
+# when some event is set.
+
 names = []
 
 async def collect():
