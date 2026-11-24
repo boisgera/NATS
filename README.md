@@ -49,7 +49,7 @@ Learn the basics of the [NATS Python client API](https://nats-io.github.io/nats.
  - [ ] **Heartbeat.** Send every second a message with subject `"❤️"` 
       and with data your (utf-8 encoded) name.
 
- - [ ] **Alive** Create a python file with an async function `alive` 
+ - [ ] **Alive?** Create a python file with an async function `alive` 
    that list (once, alphabetically) each name that has at least one heartbeat 
    over a 3.0 second. Print each name on a line when the python file is
    invoked as a script. 
