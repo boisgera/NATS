@@ -22,7 +22,7 @@ For further information, refer to the [asyncio documentation][asyncio].
 
 - [ ] Install the [official NATS Python client and tools](https://github.com/nats-io/nats.py),
 
-- [ ] Test the NATS client with `01_hello_world.py` (demo server),
+- [ ] Test the NATS client with `01_hello_world.py` (use the NATS demo server),
 
 - [ ] Install and start the NATS server binary/service,
 
